@@ -27,6 +27,8 @@ sensor:
     postal_code: "1234 AB"
     fuel_type: "euro95" # Options: euro98, euro95, diesel, lpg, aardgas, biodiesel, premium_benzine, premium_diesel
     name: "Fuel Prices"
+    range: 5 # Maximum distance in Km
+    limit: 3 # Amount of fuel stations. Maximum is 5.
 ```
 
 Scan interval is set to 4 hours. This is currently not configurable to avoid being blocked by Independer.nl. If you want to change the scan interval, open a pull request with your changes.
