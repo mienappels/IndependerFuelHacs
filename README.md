@@ -23,10 +23,9 @@ If independer.nl changes their website, this component may stop working. Please 
 
 ```yaml
 sensor:
-  - platform: independer_scraper
+  - platform: independer_fuel
     postal_code: "1234 AB"
     fuel_type: "euro95" # Options: euro98, euro95, diesel, lpg, aardgas, biodiesel, premium_benzine, premium_diesel
-    name: "Fuel Prices"
     range: 5 # Maximum distance in Km
     limit: 3 # Amount of fuel stations. Maximum is 5.
 ```
