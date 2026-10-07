@@ -29,6 +29,8 @@ sensor:
     name: "Fuel Prices"
 ```
 
+Scan interval is set to 4 hours. This is currently not configurable to avoid being blocked by Independer.nl. If you want to change the scan interval, open a pull request with your changes.
+
 ## Changelog
 All notable changes to this project will be documented in the [CHANGELOG.md](./CHANGELOG.md) file.
 
