@@ -9,7 +9,6 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 from homeassistant.components.sensor import PLATFORM_SCHEMA
-from homeassistant.const import CONF_POSTAL_CODE
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -20,7 +19,6 @@ CONF_FUEL_TYPE = "fuel_type"
 CONF_RANGE = "range"
 CONF_LIMIT = "limit"
 
-# Bijgewerkte mapping op basis van de exacte Independer waarden
 FUEL_TYPES = {
     "euro98": 1,
     "euro95": 2,
