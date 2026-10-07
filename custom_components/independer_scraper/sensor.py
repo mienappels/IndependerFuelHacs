@@ -5,7 +5,11 @@ from datetime import timedelta
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+from homeassistant.helpers.update_coordinator import (
+    DataUpdateCoordinator,
+    UpdateFailed,
+    CoordinatorEntity,
+)
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 from homeassistant.components.sensor import PLATFORM_SCHEMA
@@ -98,9 +102,9 @@ class IndependerDataCoordinator(DataUpdateCoordinator):
             raise UpdateFailed(f"Fout bij ophalen van Independer API: {errorMessage}")
 
 
-class IndependerFuelSensor(SensorEntity):
+class IndependerFuelSensor(CoordinatorEntity, SensorEntity):
     def __init__(self, coordinator, postalCode, fuelType, rank):
-        self.coordinator = coordinator
+        super().__init__(coordinator)
         self.postalCode = postalCode
         self.fuelType = fuelType
         self.rank = rank
@@ -108,12 +112,12 @@ class IndependerFuelSensor(SensorEntity):
         displayRank = self.rank + 1
         
         self._attr_name = f"Brandstof {fuelType.replace('_', ' ').title()} ({postalCode}) #{displayRank}"
-        self._attr_unique_id = f"independer_{postalCode}_{fuelType}_{displayRank}"
+        self._attr_unique_id = f"independer_{postalCode.replace(' ', '')}_{fuelType}_{displayRank}".lower()
         self._attr_icon = "mdi:gas-station"
         self._attr_native_unit_of_measurement = "€/L" 
 
     @property
-    def state(self):
+    def native_value(self):
         gasStations = self.coordinator.data
         if gasStations and len(gasStations) > self.rank:
             return gasStations[self.rank].get("fuel", {}).get("fuelPrice")
@@ -132,6 +136,3 @@ class IndependerFuelSensor(SensorEntity):
                 "Rang": self.rank + 1
             }
         return {"Fout": "Niet genoeg tankstations gevonden binnen deze straal."}
-
-    async def async_update(self):
-        await self.coordinator.async_request_refresh()
