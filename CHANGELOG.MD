@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2017-06-20
+## [0.1.1] - 2026-10-08
+
+- Fixed directory and file structure to comply with Home Assistant custom component requirements.
+- Fixed CHANGELOG.md issue where the version number and date was not updated correctly after the initial release.
+
+## [0.1.0] - 2026-10-08
 
 ### Added
 
