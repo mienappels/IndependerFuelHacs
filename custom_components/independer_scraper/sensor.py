@@ -15,6 +15,7 @@ _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "independer_fuel"
 
+CONF_POSTAL_CODE = "postal_code"
 CONF_FUEL_TYPE = "fuel_type"
 CONF_RANGE = "range"
 CONF_LIMIT = "limit"
