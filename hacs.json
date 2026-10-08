@@ -1,5 +1,5 @@
 {
-  "name": "Independer Brandstofprijzen",
+  "name": "NL Fuel Checker",
   "render_readme": true,
   "iot_class": "Cloud Polling"
 }
