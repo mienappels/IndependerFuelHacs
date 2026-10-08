@@ -1,0 +1,10 @@
+{
+  "domain": "nl-fuel-checker",
+  "name": "NL Fuel Checker",
+  "documentation": "https://github.com/mienappels/NL-fuel-checker-HACS",
+  "dependencies": [],
+  "codeowners": ["@mienappels"],
+  "requirements": [],
+  "iot_class": "cloud_polling",
+  "version": "0.2.0"
+}
