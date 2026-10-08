@@ -99,7 +99,7 @@ class IndependerDataCoordinator(DataUpdateCoordinator):
                 return jsonData.get("gasStations", [])
 
         except Exception as errorMessage:
-            raise UpdateFailed(f"Fout bij ophalen van Independer API: {errorMessage}")
+            raise UpdateFailed(f"Error fetching Independer API: {errorMessage}")
 
 
 class IndependerFuelSensor(CoordinatorEntity, SensorEntity):
@@ -111,10 +111,10 @@ class IndependerFuelSensor(CoordinatorEntity, SensorEntity):
         
         displayRank = self.rank + 1
         
-        self._attr_name = f"Brandstof {fuelType.replace('_', ' ').title()} ({postalCode}) #{displayRank}"
+        self._attr_name = f"Fuel {fuelType.replace('_', ' ').title()} ({postalCode}) #{displayRank}"
         self._attr_unique_id = f"independer_{postalCode.replace(' ', '')}_{fuelType}_{displayRank}".lower()
         self._attr_icon = "mdi:gas-station"
-        self._attr_native_unit_of_measurement = "€/L" 
+        self._attr_native_unit_of_measurement = "€/L"
 
     @property
     def native_value(self):
@@ -129,10 +129,10 @@ class IndependerFuelSensor(CoordinatorEntity, SensorEntity):
         if gasStations and len(gasStations) > self.rank:
             stationData = gasStations[self.rank]
             return {
-                "Tankstation": stationData.get("name"),
-                "Afstand (km)": stationData.get("distance"),
-                "Laatst Geüpdatet": stationData.get("fuel", {}).get("lastUpdated"),
-                "Adres": f"{stationData.get('location', {}).get('address', {}).get('streetName', '')} {stationData.get('location', {}).get('address', {}).get('houseNumber', '')}, {stationData.get('location', {}).get('address', {}).get('city', '')}",
-                "Rang": self.rank + 1
+                "station_name": stationData.get("name"),
+                "distance": stationData.get("distance"),
+                "last_updated": stationData.get("fuel", {}).get("lastUpdated"),
+                "address": f"{stationData.get('location', {}).get('address', {}).get('streetName', '')} {stationData.get('location', {}).get('address', {}).get('houseNumber', '')}, {stationData.get('location', {}).get('address', {}).get('city', '')}",
+                "rank": self.rank + 1
             }
-        return {"Fout": "Niet genoeg tankstations gevonden binnen deze straal."}
+        return {"error": "Not enough gas stations found within this range."}
