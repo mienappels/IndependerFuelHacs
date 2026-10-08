@@ -1,10 +1,10 @@
 # NL Fuel Checker for Home Assistant
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/mienappels/NL-fuel-checker-HACS)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/mienappels/NL-fuel-checker)
 
 Home Assistant custom integration to fetch fuel prices from multiple Dutch sources, including Independer and PompWijzer. This component is not affiliated with either service provider.
 
-If the upstream fuel providers change their APIs or website behavior, this integration may stop working. Please report issues on the [GitHub page](https://github.com/mienappels/NL-fuel-checker-HACS/issues).
+If the upstream fuel providers change their APIs or website behavior, this integration may stop working. Please report issues on the [GitHub page](https://github.com/mienappels/NL-fuel-checker/issues).
 
 ## Installation
 
@@ -13,7 +13,7 @@ If the upstream fuel providers change their APIs or website behavior, this integ
 1. Install [HACS](https://hacs.xyz/) if you haven't already.
 2. Click the 3 dots in the top right corner of HACS.
 3. Select "Custom repositories".
-4. Enter the following URL: (`https://github.com/mienappels/NL-fuel-checker-HACS`)
+4. Enter the following URL: (`https://github.com/mienappels/NL-fuel-checker`)
 5. Select "Integration" as the category.
 6. Click "Add" to add the repository.
 7. Search for "NL Fuel Checker" in HACS and click "Install".

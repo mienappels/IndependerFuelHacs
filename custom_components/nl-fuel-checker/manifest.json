@@ -3,9 +3,9 @@
   "name": "NL Fuel Checker",
   "codeowners": ["@mienappels"],
   "dependencies": [],
-  "documentation": "https://github.com/mienappels/NL-fuel-checker-HACS",
+  "documentation": "https://github.com/mienappels/NL-fuel-checker",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/mienappels/NL-fuel-checker-HACS/issues",
+  "issue_tracker": "https://github.com/mienappels/NL-fuel-checker/issues",
   "requirements": [],
-  "version": "0.2.1"
+  "version": "0.2.2"
 }
